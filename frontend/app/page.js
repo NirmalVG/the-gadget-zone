@@ -1,10 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import FeaturedProducts from "@/components/FeaturedProducts";
+import products from "@/data/products";
 
 export default function Home() {
-  return (
-    <main>
-      <h1>H, This is The Gadget Zone</h1>
-    </main>
-  );
+    return (
+        <main className="py-3">
+            <FeaturedProducts data={products} />
+        </main>
+    );
 }
