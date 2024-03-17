@@ -1,10 +1,11 @@
 import FeaturedProducts from "@/components/FeaturedProducts";
-import products from "@/data/products";
+import getData from "../utils/nextFetch";
 
-export default function Home() {
+export default async function Home() {
+    const response = await getData("/api/products");
     return (
         <main className="py-3">
-            <FeaturedProducts data={products} />
+            <FeaturedProducts data={response} />
         </main>
     );
 }
