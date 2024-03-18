@@ -109,7 +109,7 @@ const Cart = () => {
                     )}
                 </Col>
                 <Col md={4}>
-                    <Card>
+                    <Card className="p-2">
                         <ListGroup variant="flush">
                             <h2>
                                 Subtotal (
@@ -130,7 +130,7 @@ const Cart = () => {
                         <ListGroup.Item>
                             <Button
                                 type="button"
-                                className="btn-block"
+                                className="btn-block m-2"
                                 disabled={cartItems === 0}
                                onClick={checkoutHandler}
                             >

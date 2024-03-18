@@ -9,7 +9,7 @@ const FeaturedProducts = ({ data }) => {
         <Container>
             <Row>
                 <Col md={6} lg={8}><h1>Featured Products</h1></Col>
-                <Col md={6} lg={4}><Link href="/products"><Button className={`${styles.view_button}`}>View All Products</Button></Link></Col>
+                <Col md={6} lg={4}><Link href="/products"><Button className={`${styles.view_button} btn btn-light`}>View All Products</Button></Link></Col>
             </Row>
             
             <Row>
