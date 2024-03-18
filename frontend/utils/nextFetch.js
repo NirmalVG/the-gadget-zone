@@ -2,7 +2,7 @@ import { BASE_URL } from "@/constants";
 
 const nextFetch = async (slug) => {
     try {
-        const res = await fetch(`${BASE_URL}${slug}`);
+        const res = await fetch(`http://localhost:5000${slug}`);
 
         if (!res.ok) {
             return undefined;
