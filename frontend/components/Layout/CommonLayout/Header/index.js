@@ -37,8 +37,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Link href="/cart" className="text-decoration-none">
-                                <Nav.Link>
+                            <Link href="/cart" className="text-decoration-none pe-3">
+                       
                                     <FaShoppingCart /> Cart
                                     {cartItems.length > 0 && (
                                         <Badge
@@ -52,7 +52,7 @@ const Header = () => {
                                             )}
                                         </Badge>
                                     )}
-                                </Nav.Link>
+                        
                             </Link>
                             {userInfo? (<NavDropdown title={userInfo.name} id="username">
                                 <Link href="/profile">
@@ -65,9 +65,9 @@ const Header = () => {
                                 href="/login"
                                 className="text-decoration-none"
                             >
-                                <Nav.Link>
+                             
                                     <FaUser /> Sign In
-                                </Nav.Link>
+                              
                             </Link>)}
                             
                         </Nav>

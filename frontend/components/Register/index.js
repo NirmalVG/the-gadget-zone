@@ -1,11 +1,12 @@
+"use client"
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import FormContainer from "../components/FormContainer";
+import FormContainer from "../FormContainer";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../components/Loader"
-import {useRegisterMutation} from "../redux/slices/userApiSlice"
-import {setCredentials} from "../slices/authSlice"
+import Loader from "../Loader"
+import {useRegisterMutation} from "../../redux/slices/usersApiSlices"
+import {setCredentials} from "../../redux/slices/authSlice"
 import {toast} from "react-toastify"
 
 const Register = () => {
@@ -15,14 +16,13 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("")
 
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
-    const [register, {isLoading}] = useRegiterMutation()
+    const [register, {isLoading}] = useRegisterMutation()
 
     const {userInfo} = useSelector((state) => state.auth)
 
 
-    const submitHandler = (e) => {
+    const submitHandler = async(e) => {
         e.preventDefault();
         if(password!== confirmPassword) {
             toast.error('Passwords do not match')
@@ -43,42 +43,42 @@ const Register = () => {
     return (
         <FormContainer>
             <h1>Sign Up</h1>
-            <Form onSubmit={submitHAndler}>
+            <Form onSubmit={submitHandler}>
             <Form.Group controlId="name" className="my-3">
                     <Form.Label>Name</Form.Label>
-                    <form.Control
+                    <Form.Control
                         type="text"
                         placeholder="Enter Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                    ></form.Control>
+                    ></Form.Control>
                 </Form.Group>
                 <Form.Group controlId="email" className="my-3">
                     <Form.Label>Email Address</Form.Label>
-                    <form.Control
+                    <Form.Control
                         type="email"
                         placeholder="Enter Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                    ></form.Control>
+                    ></Form.Control>
                 </Form.Group>
                 <Form.Group controlId="password" className="my-3">
                     <Form.Label>Password</Form.Label>
-                    <form.Control
+                    <Form.Control
                         type="password"
                         placeholder="Enter password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                    ></form.Control>
+                    ></Form.Control>
                 </Form.Group>
                 <Form.Group controlId="confirmPassword" className="my-3">
                     <Form.Label>Confirm Password</Form.Label>
-                    <form.Control
+                    <Form.Control
                         type="password"
                         placeholder="Confirm password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                    ></form.Control>
+                    ></Form.Control>
                 </Form.Group>
                 <Button type="submit" variant="primary" className="mt-2" disabled={isLoading}>
                     Register
