@@ -19,13 +19,14 @@ const Login = () => {
     const {userInfo} = useSelector((state) => state.auth)
 
 
-    const submitHandler = async(e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const res = await login({email, password}).unwrap()
-            dispatch(setCredentials({...res, }))
-        } catch(error) {
-            toast.error(err.data.message || err.error)
+            const res = await login({ email, password }).unwrap();
+            dispatch(setCredentials({ ...res }));
+        } catch (err) {
+            const errorMessage = err.data ? err.data.message : err.error || "An error occurred.";
+            toast.error(errorMessage);
         }
     };
 

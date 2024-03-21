@@ -1,4 +1,4 @@
-// File: F:\WebCastle\TheGadgetZone\frontend\app\page.js
+// File: C:\WebCastle\the-gadget-zone\frontend\app\page.js
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

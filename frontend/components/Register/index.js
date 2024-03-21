@@ -22,22 +22,23 @@ const Register = () => {
     const {userInfo} = useSelector((state) => state.auth)
 
 
-    const submitHandler = async(e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
-        if(password!== confirmPassword) {
-            toast.error('Passwords do not match')
+        if (password !== confirmPassword) {
+            toast.error('Passwords do not match');
             return;
         } else {
             try {
-                const res = await register({name, email, password}).unwrap()
-                dispatch(setCredentials({...res, }))
-            } catch(error) {
-                toast.error(err.data.message || err.error)
+                const res = await register({ name, email, password }).unwrap();
+                dispatch(setCredentials({...res}));
+            } catch (error) {
+                if (error && error.data && error.data.message) {
+                    toast.error(error.data.message);
+                } else {
+                    toast.error('An error occurred. Please try again.');
+                }
             }
         }
-
-
-       
     };
 
     return (

@@ -1,4 +1,4 @@
-// File: F:\WebCastle\TheGadgetZone\frontend\app\cart\page.js
+// File: C:\WebCastle\the-gadget-zone\frontend\app\cart\page.js
 import * as entry from '../../../../app/cart/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
